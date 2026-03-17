@@ -19,7 +19,6 @@ TX:
 - Porcoolpine Computer with Ubuntu 24.04
 - USB2
 
-Additionally, I have managed to succesfully use a M1 Mac computer for this set up, however, I have not written down the exact steps needed to make it work. Because of this, I have broadly written what I did for macOS at the end of the file
 
 ## Linux Guide
 
@@ -86,6 +85,8 @@ Once everything has been installed, we can do a test of the hardware. For this, 
 ## Running GNURadio and using the hardware sinks
 
 ## macOS Guide
+
+> Disclaimer: This was done on an M1 Pro Mac, however, I have not written down the exact steps needed to make it work since I didn't expect to use it. Because of this, I have a lot less detail but this is broadly what I remember
 
 1. Downloaded the `gnuradio` package from brew
     - Luckily, this package already includes the uhd drivers needed for the USRP
