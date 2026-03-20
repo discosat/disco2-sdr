@@ -24,6 +24,14 @@ TX:
 
 > OBS: It's important to first install the UHD drivers for the USRP before installing GNURadio, for whatever reason it will sometimes fail to find them if you install them after GNURadio, not sure if this was ever patched up just fyi
 
+0. Make sure you have the software needed to build (cmake, etc) and also you have dependencies for GNURadio if you are installing from source
+   - `sudo apt install build-essential git cmake g++ libboost-all-dev libgmp-dev swig python3-numpy \
+        python3-mako python3-sphinx python3-lxml doxygen libfftw3-dev \
+        libsdl1.2-dev libgsl-dev libqwt-qt5-dev libqt5opengl5-dev python3-pyqt5 \
+        liblog4cpp5-dev libzmq3-dev python3-yaml python3-click python3-click-plugins \
+        python3-zmq python3-scipy python3-gi python3-gi-cairo gir1.2-gtk-3.0 \
+        libcodec2-dev libgsm1-dev libusb-1.0-0 libusb-1.0-0-dev libudev-dev python3-setuptools`
+
 1. Download and install the UHD Drivers
     - You can add them via
         -`sudo apt-get install libuhd-dev uhd-host`
@@ -43,7 +51,7 @@ TX:
     - `mkdir build`
     - `cd build`
     - `cmake ..`
-    - `make` you can also pass the `-j` flag to make and specify how many processors you want to use for the build process
+    - `make` (you can also pass the `-j` flag to make and specify how many processors you want to use for the build process like so `make -j $(nproc)`)
     - `sudo make install`
     - `sudo ldconfig`
 
