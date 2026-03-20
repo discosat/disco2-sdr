@@ -145,7 +145,7 @@ blocks:
     alias: ''
     begin_tag: pmt.PMT_NIL
     comment: ''
-    file: /Users/luil/Downloads/test1/second_recordinggqrx_20260311_131049_436989500_250000_fc.raw
+    file: /home/gs-radio/Development/2026-03-11-disco2gs-ping-recordings/test1/second_recordinggqrx_20260311_131049_436989500_250000_fc.raw
     length: '0'
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -265,8 +265,8 @@ blocks:
     minoutbuf: '0'
   states:
     _io_cache: ('Bit de-stuffer', 'msg_block', [], [('msg_in', 'message', 1)], [('pdu_out',
-      'message', 1)], '\nRemove stuffed bits from a message i.e, the bits followed
-      by \nfive consequitive ones. \n', [])
+      'message', 1)], '\n    Remove stuffed bits from a message i.e, the bits followed
+      by \n    five consequitive ones. \n    ', [])
     bus_sink: false
     bus_source: false
     bus_structure: null
@@ -314,12 +314,12 @@ blocks:
     minoutbuf: '0'
   states:
     _io_cache: '(''CCSDS Additive Scrambler'', ''blk'', [], [(''PDU_in'', ''message'',
-      1)], [(''PDU_out'', ''message'', 1)], ''\nThis block srcrambles an input PDU
-      consisting of unpacked bytes.\nThe Additive scrambling is compliant with the
-      255-bit pseudo-randomizer\ndesribed in section 10 in CCSDS 131.0-B-5 (TM Blue
-      Book)\n\nNote: as the scrambler is additive, applying it twice will return\nthe
-      original message. \n\nPDU_in:  unpacked bits\nPDU_out: scrambled unpacked bits\n'',
-      [])'
+      1)], [(''PDU_out'', ''message'', 1)], ''\n    This block srcrambles an input
+      PDU consisting of unpacked bytes.\n    The Additive scrambling is compliant
+      with the 255-bit pseudo-randomizer\n    desribed in section 10 in CCSDS 131.0-B-5
+      (TM Blue Book)\n\n    Note: as the scrambler is additive, applying it twice
+      will return\n    the original message. \n\n    PDU_in:  unpacked bits\n    PDU_out:
+      scrambled unpacked bits\n    '', [])'
     bus_sink: false
     bus_source: false
     bus_structure: null
@@ -357,9 +357,9 @@ blocks:
     minoutbuf: '0'
   states:
     _io_cache: ('HDLC Deframer', 'msg_block', [], [('msg_in', 'message', 1)], [('msg_out',
-      'message', 1)], "\nGets a message with the front HDLC flag removed by the\n'sync
-      and create PDU block' and this block then removes\nthe last HDLC flag and sends
-      the prior bitstream\n", [])
+      'message', 1)], "\n    Gets a message with the front HDLC flag removed by the\n    'sync
+      and create PDU block' and this block then removes\n    the last HDLC flag and
+      sends the prior bitstream\n    ", [])
     bus_sink: false
     bus_source: false
     bus_structure: null
@@ -393,7 +393,8 @@ blocks:
     minoutbuf: '0'
   states:
     _io_cache: '(''Pack 8 bits'', ''blk'', [], [(''PDU_in'', ''message'', 1)], [(''PDU_out'',
-      ''message'', 1)], ''\nPDU_in: 1,0,1,0,1,0,1,0 (ex)\nPDU_out: 0xAA\n'', [])'
+      ''message'', 1)], ''\n    PDU_in: 1,0,1,0,1,0,1,0 (ex)\n    PDU_out: 0xAA\n    '',
+      [])'
     bus_sink: false
     bus_source: false
     bus_structure: null
@@ -448,7 +449,7 @@ blocks:
     bus_structure: null
     coordinate: [696, 128.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: qtgui_time_sink_x_0
   id: qtgui_time_sink_x
   parameters:
@@ -1179,4 +1180,4 @@ connections:
 
 metadata:
   file_format: 1
-  grc_version: 3.10.12.0
+  grc_version: 3.10.9.2
