@@ -28,6 +28,7 @@ TX:
     - You can add them via
         -`sudo apt-get install libuhd-dev uhd-host`
     - You can also build them from source. [Here is a good guide to do it by Ettus](https://files.ettus.com/manual/page_build_guide.html)
+    - Once installed, run `sudo uhd_images_downloader` to download the firmware for the USRP
 
 
 2. Clone and install the `disco_gnuradio`
