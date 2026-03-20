@@ -138,7 +138,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [992, 216.0]
+    coordinate: [984, 176.0]
     rotation: 0
     state: enabled
 - name: analog_simple_squelch_cc_0
@@ -483,13 +483,13 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     samp_rate: samp_rate
-    taps: firdes.complex_band_pass(1, samp_rate, -40e3, 40e3, 1e3)
+    taps: firdes.complex_band_pass(1, samp_rate, -30e3, 30e3, 1e3)
     type: ccc
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [336, 352.0]
+    coordinate: [336, 336.0]
     rotation: 0
     state: enabled
 - name: qtgui_number_sink_0
@@ -916,7 +916,7 @@ blocks:
     dc_offs_enb9: default
     dev_addr: '""'
     dev_args: ''
-    gain0: '50'
+    gain0: '80'
     gain1: '0'
     gain10: '0'
     gain11: '0'
@@ -1249,6 +1249,7 @@ connections:
 - [analog_quadrature_demod_cf_0, '0', blocks_file_sink_0, '0']
 - [analog_quadrature_demod_cf_0, '0', virtual_sink_0, '0']
 - [analog_simple_squelch_cc_0, '0', analog_agc_xx_0, '0']
+- [analog_simple_squelch_cc_0, '0', qtgui_sink_x_0_0, '0']
 - [blocks_char_to_float_0, '0', qtgui_time_sink_x_0, '0']
 - [blocks_stream_to_tagged_stream_0, '0', blocks_char_to_float_0, '0']
 - [digital_binary_slicer_fb_1, '0', blocks_stream_to_tagged_stream_0, '0']
@@ -1260,7 +1261,6 @@ connections:
 - [freq_xlating_fir_filter_xxx_0, '0', analog_simple_squelch_cc_0, '0']
 - [freq_xlating_fir_filter_xxx_0_1, '0', analog_simple_squelch_cc_0, '0']
 - [freq_xlating_fir_filter_xxx_0_1_0, '0', analog_simple_squelch_cc_0, '0']
-- [freq_xlating_fir_filter_xxx_0_1_0, '0', qtgui_sink_x_0_0, '0']
 - [satellites_decode_rs_ccsds_0, out, blocks_message_debug_1, print]
 - [satellites_decode_rs_ccsds_0, out, disco_ZMQ_sink_0, PDU_in]
 - [satellites_decode_rs_ccsds_0, out, zeromq_pub_msg_sink_0, in]
