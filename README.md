@@ -21,7 +21,7 @@ It is organised in folders, each containing documentation for its respective scr
         └── terrestrial_ping_decode
 ```
 
->> [!NOTE]
+> [!NOTE]
 > To be able to test and modify the GNURadio Companion files, you will need to install the following packages which are also mentioned in the installation guide:
 
 - disco_gnuradio
