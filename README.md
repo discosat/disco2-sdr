@@ -1,5 +1,20 @@
 # disco2-sdr
-This repository contains the flowgraphs, recordings, documentation and other files for the Software Defined Radio (SDR) portion of the groundstation.
+This repository contains the software defined radio (SDR) documentation for the ITU Groundstation (ITU-GS). It is organised in folder each containing documentation for its respective scripts and tools:
+
+`
+├── decoding
+│   ├── DISCO1
+│   └── DISCO2
+├── hardware_installation_guide
+├── PLAN.md
+├── post-processing
+├── README.md
+└── recording
+
+`
+
+
+flowgraphs, recordings, documentation and other files for the Software Defined Radio (SDR) portion of the groundstation.
 
 For the documentation for DISCO1, check the [disco_gnuradio](https://github.com/discosat/disco_gnuradio) repository.
 
