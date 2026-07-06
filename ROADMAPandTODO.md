@@ -20,8 +20,11 @@
     .raw
     doppler.txt 
 
-8. ZMQ->Ch
+8. ZMQ->CSH
 9. Decode is sent somewhere... ask Julian
+
+### Future
+10. Somehow do it all realtime?
 
 # TODO
 ## Documentation
