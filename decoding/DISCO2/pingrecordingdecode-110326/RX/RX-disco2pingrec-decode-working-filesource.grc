@@ -58,7 +58,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '250000'
+    value: '4000000'
   states:
     bus_sink: false
     bus_source: false
@@ -83,7 +83,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [720, 272.0]
+    coordinate: [824, 264.0]
     rotation: 0
     state: enabled
 - name: analog_quadrature_demod_cf_0
@@ -118,7 +118,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [560, 280.0]
+    coordinate: [656, 280.0]
     rotation: 0
     state: enabled
 - name: blocks_char_to_float_0
@@ -145,7 +145,7 @@ blocks:
     alias: ''
     begin_tag: pmt.PMT_NIL
     comment: ''
-    file: /home/gs-radio/Development/2026-03-11-disco2gs-ping-recordings/test1/second_recordinggqrx_20260311_131049_436989500_250000_fc.raw
+    file: /home/luisito/Development/ITU/space/decode/raw_data/gqrx_20260504_134331_437060000_4000000_fc.raw
     length: '0'
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -157,7 +157,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [80, 280.0]
+    coordinate: [56, 288.0]
     rotation: 0
     state: enabled
 - name: blocks_message_debug_1
@@ -212,9 +212,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [224, 208.0]
+    coordinate: [328, 264.0]
     rotation: 0
-    state: enabled
+    state: bypassed
 - name: digital_binary_slicer_fb_1
   id: digital_binary_slicer_fb
   parameters:
@@ -265,8 +265,8 @@ blocks:
     minoutbuf: '0'
   states:
     _io_cache: ('Bit de-stuffer', 'msg_block', [], [('msg_in', 'message', 1)], [('pdu_out',
-      'message', 1)], '\n    Remove stuffed bits from a message i.e, the bits followed
-      by \n    five consequitive ones. \n    ', [])
+      'message', 1)], '\nRemove stuffed bits from a message i.e, the bits followed
+      by \nfive consequitive ones. \n', [])
     bus_sink: false
     bus_source: false
     bus_structure: null
@@ -314,12 +314,12 @@ blocks:
     minoutbuf: '0'
   states:
     _io_cache: '(''CCSDS Additive Scrambler'', ''blk'', [], [(''PDU_in'', ''message'',
-      1)], [(''PDU_out'', ''message'', 1)], ''\n    This block srcrambles an input
-      PDU consisting of unpacked bytes.\n    The Additive scrambling is compliant
-      with the 255-bit pseudo-randomizer\n    desribed in section 10 in CCSDS 131.0-B-5
-      (TM Blue Book)\n\n    Note: as the scrambler is additive, applying it twice
-      will return\n    the original message. \n\n    PDU_in:  unpacked bits\n    PDU_out:
-      scrambled unpacked bits\n    '', [])'
+      1)], [(''PDU_out'', ''message'', 1)], ''\nThis block srcrambles an input PDU
+      consisting of unpacked bytes.\nThe Additive scrambling is compliant with the
+      255-bit pseudo-randomizer\ndesribed in section 10 in CCSDS 131.0-B-5 (TM Blue
+      Book)\n\nNote: as the scrambler is additive, applying it twice will return\nthe
+      original message. \n\nPDU_in:  unpacked bits\nPDU_out: scrambled unpacked bits\n'',
+      [])'
     bus_sink: false
     bus_source: false
     bus_structure: null
@@ -357,9 +357,9 @@ blocks:
     minoutbuf: '0'
   states:
     _io_cache: ('HDLC Deframer', 'msg_block', [], [('msg_in', 'message', 1)], [('msg_out',
-      'message', 1)], "\n    Gets a message with the front HDLC flag removed by the\n    'sync
-      and create PDU block' and this block then removes\n    the last HDLC flag and
-      sends the prior bitstream\n    ", [])
+      'message', 1)], "\nGets a message with the front HDLC flag removed by the\n'sync
+      and create PDU block' and this block then removes\nthe last HDLC flag and sends
+      the prior bitstream\n", [])
     bus_sink: false
     bus_source: false
     bus_structure: null
@@ -393,8 +393,7 @@ blocks:
     minoutbuf: '0'
   states:
     _io_cache: '(''Pack 8 bits'', ''blk'', [], [(''PDU_in'', ''message'', 1)], [(''PDU_out'',
-      ''message'', 1)], ''\n    PDU_in: 1,0,1,0,1,0,1,0 (ex)\n    PDU_out: 0xAA\n    '',
-      [])'
+      ''message'', 1)], ''\nPDU_in: 1,0,1,0,1,0,1,0 (ex)\nPDU_out: 0xAA\n'', [])'
     bus_sink: false
     bus_source: false
     bus_structure: null
@@ -406,19 +405,48 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    center_freq: center_var
+    center_freq: '10000'
     comment: +83000 to center at 437
-    decim: '5'
+    decim: '50'
     maxoutbuf: '0'
     minoutbuf: '0'
     samp_rate: samp_rate
-    taps: firdes.complex_band_pass(1, samp_rate, -(samp_rate/20), samp_rate/20, 1e3)
+    taps: firdes.complex_band_pass(1, samp_rate, -20e3,20e3, 5e3)
     type: ccc
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [360, 308.0]
+    coordinate: [456, 352.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_sink_x_0
+  id: qtgui_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    bw: samp_rate/50
+    comment: ''
+    fc: '437060000'
+    fftsize: '1024'
+    gui_hint: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '""'
+    plotconst: 'True'
+    plotfreq: 'True'
+    plottime: 'True'
+    plotwaterfall: 'True'
+    rate: '30'
+    showports: 'False'
+    showrf: 'True'
+    type: complex
+    wintype: window.WIN_BLACKMAN_hARRIS
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [368, 96.0]
     rotation: 0
     state: enabled
 - name: qtgui_sink_x_0_0
@@ -547,67 +575,6 @@ blocks:
     coordinate: [1096, 360.0]
     rotation: 0
     state: disabled
-- name: qtgui_waterfall_sink_x_0
-  id: qtgui_waterfall_sink_x
-  parameters:
-    affinity: ''
-    alias: ''
-    alpha1: '1.0'
-    alpha10: '1.0'
-    alpha2: '1.0'
-    alpha3: '1.0'
-    alpha4: '1.0'
-    alpha5: '1.0'
-    alpha6: '1.0'
-    alpha7: '1.0'
-    alpha8: '1.0'
-    alpha9: '1.0'
-    axislabels: 'True'
-    bw: samp_rate
-    color1: '0'
-    color10: '0'
-    color2: '0'
-    color3: '0'
-    color4: '0'
-    color5: '0'
-    color6: '0'
-    color7: '0'
-    color8: '0'
-    color9: '0'
-    comment: ''
-    fc: '436989500'
-    fftsize: '1024'
-    freqhalf: 'True'
-    grid: 'False'
-    gui_hint: ''
-    int_max: '10'
-    int_min: '-140'
-    label1: ''
-    label10: ''
-    label2: ''
-    label3: ''
-    label4: ''
-    label5: ''
-    label6: ''
-    label7: ''
-    label8: ''
-    label9: ''
-    legend: 'True'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    name: '""'
-    nconnections: '1'
-    showports: 'False'
-    type: complex
-    update_time: '0.10'
-    wintype: window.WIN_BLACKMAN_hARRIS
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [344, 88.0]
-    rotation: 0
-    state: enabled
 - name: satellites_decode_rs_ccsds_0
   id: satellites_decode_rs_ccsds
   parameters:
@@ -638,7 +605,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     options: '""'
-    samp_rate: samp_rate/5
+    samp_rate: samp_rate/50
     subaudio: 'False'
   states:
     bus_sink: false
@@ -1158,10 +1125,10 @@ connections:
 - [analog_agc_xx_0, '0', analog_quadrature_demod_cf_0, '0']
 - [analog_quadrature_demod_cf_0, '0', virtual_sink_0, '0']
 - [analog_simple_squelch_cc_0, '0', analog_agc_xx_0, '0']
+- [analog_simple_squelch_cc_0, '0', qtgui_sink_x_0, '0']
 - [analog_simple_squelch_cc_0, '0', qtgui_sink_x_0_0, '0']
 - [blocks_char_to_float_0, '0', qtgui_time_sink_x_0, '0']
 - [blocks_file_source_0, '0', blocks_throttle2_0, '0']
-- [blocks_file_source_0, '0', qtgui_waterfall_sink_x_0, '0']
 - [blocks_stream_to_tagged_stream_0, '0', blocks_char_to_float_0, '0']
 - [blocks_throttle2_0, '0', freq_xlating_fir_filter_xxx_0, '0']
 - [digital_binary_slicer_fb_1, '0', blocks_stream_to_tagged_stream_0, '0']
@@ -1180,4 +1147,4 @@ connections:
 
 metadata:
   file_format: 1
-  grc_version: 3.10.9.2
+  grc_version: 3.10.12.0
