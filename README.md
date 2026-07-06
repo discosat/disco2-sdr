@@ -23,8 +23,7 @@ It is organised in folders, each containing documentation for its respective scr
 
 > [!NOTE]
 > To be able to test and modify the GNURadio Companion files, you will need to install the following packages which are also mentioned in the installation guide:
-
-- disco_gnuradio
-- gr-satellites 
+> - disco_gnuradio
+> - gr-satellites 
 
 For the documentation for DISCO1, check the [disco_gnuradio](https://github.com/discosat/disco_gnuradio) repository.
