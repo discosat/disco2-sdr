@@ -11,7 +11,7 @@ To download the `sdrpp_baseband_437075000Hz_2026-04-30T151430.wav` file needed f
 
 The expected terminal output is as follows:
 
-`
+```
 ***** VERBOSE PDU DEBUG PRINT ******
 ((rs_errors . 0))
 pdu length =         74 bytes
@@ -112,4 +112,4 @@ pdu vector contents =
 0030: 57 c9 cd 1e 00 ca 48 fa e3 1a cd 1f 00 ca 43 40 
 0040: 66 66 34 0d ec 89 56 cb 26 a0 
 ************************************
-`
+```
