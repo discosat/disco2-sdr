@@ -7,7 +7,7 @@ The Gnuradio Companion's file `.grc` is anotated and expects the following packa
 - disco_gnuradio
 - gr-satellies
 
-To download the `sdrpp_baseband_437075000Hz_2026-04-30T151430.wav` file needed for the GNURadio fileblock, and to see information about the hardware used for recording, you can visit's this [PE0SAT's directory listing](https://pe0sat.vgnet.nl/download/DISCO-2/] 
+To download the `sdrpp_baseband_437075000Hz_2026-04-30T151430.wav` file needed for the GNURadio fileblock, and to see information about the hardware used for recording, you can visit's this [PE0SAT's directory listing](https://pe0sat.vgnet.nl/download/DISCO-2/). 
 
 The expected terminal output is as follows:
 
