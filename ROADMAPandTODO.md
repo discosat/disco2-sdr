@@ -28,5 +28,6 @@
 
 # TODO
 ## Documentation
+- [ ] Upload some of the recordings used for testing to a public nextcloud or similar place
 - [ ] Add links to recordings used in examples
 
