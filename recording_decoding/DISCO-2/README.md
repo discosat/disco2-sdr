@@ -20,9 +20,9 @@ All folders in this section contain examples of decoding of the following:
 - DISCO-2's pass recorded by PE0SAT
 - DISCO-2's pass recorded by ITU Ground Stations (ITUGS)
 
-### Info on DISCO-2's transmission and ITUGS Recordings 
+## Info on DISCO-2's transmission and ITUGS Recordings 
 
-#### DISCO-2's Transmissions
+### DISCO-2's Transmissions
 
 The satellite transmits at 437.075 MHz using GFSK at 4800 baud.
 
@@ -30,7 +30,7 @@ Each frame starts with a 40-bit syncword, followed by an HDLC-framed payload.
 
 This payload is scrambled via an CCSDS additive and protected by shortened ReedSolomon encoding (255,223).
 
-#### ITUGS Recordings 
+### ITUGS Recordings 
 
 Currently, the ITUGS is doing recordings with the following set-up and settings:
 
@@ -41,11 +41,11 @@ Currently, the ITUGS is doing recordings with the following set-up and settings:
 - 437.075 Mhz base band
 - 500.000 Mhz sample rate
 
-#### Pipeline 
+## Pipeline 
 
 The current pipeline loads a `.raw` file recorded via gqrx via the `File Source` block. The first step is to doppler correct this recording
 
-##### Doppler Correction 
+### Doppler Correction 
 
 The [`Doppler Correction`](https://destevez.net/2022/07/real-time-doppler-correction-with-gnu-radio/) bloc by Daniel Estevez requires two parameters:
 
