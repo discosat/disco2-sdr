@@ -104,7 +104,7 @@ This bloc requires two inputs:
 - `Sample Rate` which should be the sample_rate at _this_ point of the pipeline
     - In the example this is automatically calculated via the `samp_rate/decimation` expression
 
-## Sync and Create PDU (Protocol Data Unit)
+### Sync and Create PDU (Protocol Data Unit)
 
 This is the final bloc which requires input from the user. To find DISCO-2 packets, the correlator find matches to the `syncword`.
 
@@ -117,5 +117,32 @@ The sliding correlator finds matches (with a variable threshold which I recommen
 >
 > When experimenting, I ~doubled it to 1200, which then started generating succesful decodes. If anyone knows the real or maybe a more exact value for this it is greatly appreciated
 
+### The rest of the pipeline 
 
+Most of these are the `epy_block*.py` files generated after runnign the `.grc` file. So the source code can be read there as well.
 
+#### HDLC deframe
+
+The HDLC deframer finds the closing HDLC flag `01111110` within the `packet length`-bit window and returns everything before it.  
+
+The opening flag was already consumed by the sync word detector.
+
+#### Bit de-stuffing
+
+HDLC inserts a 0-bit after every run of five consecutive 1s to prevent data from accidentally containing the flag pattern. The de-stuffer removes these inserted zeros, recovering the original bit sequence.
+
+#### CCSDS additive descramble
+
+Help appreciated here
+
+### Pack 8 bits → bytes
+
+Groups the unpacked 8 bit array into bytes.
+
+### Reed-Solomon(255,223) decode
+
+- The received codeword is typically shorter than 255 bytes, so it is zero-padded on the left to form a full 255-byte codeword before decoding.
+
+- After decoding, the padding and 32 parity bytes are stripped, leaving only the corrected payload.
+
+- Can correct up to 16 symbol errors per codeword.
