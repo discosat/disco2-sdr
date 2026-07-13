@@ -135,11 +135,11 @@ HDLC inserts a 0-bit after every run of five consecutive 1s to prevent data from
 
 Help appreciated here
 
-### Pack 8 bits → bytes
+#### Pack 8 bits → bytes
 
 Groups the unpacked 8 bit array into bytes.
 
-### Reed-Solomon(255,223) decode
+#### Reed-Solomon(255,223) decode
 
 - The received codeword is typically shorter than 255 bytes, so it is zero-padded on the left to form a full 255-byte codeword before decoding.
 
