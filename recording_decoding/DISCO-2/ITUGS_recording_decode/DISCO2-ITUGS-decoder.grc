@@ -189,8 +189,7 @@ blocks:
     alias: ''
     begin_tag: pmt.PMT_NIL
     comment: ''
-    file: /home/luisito/Development/ITU/space/decode june tests/June 2026/2026-06-26/#2
-      record/gqrx_20260626_130053_437075000_500000_fc.raw
+    file: /home/luisito/Development/ITU/space/decode june tests/June 2026/2026-06-17/gqrx_20260617_122703_437075000_500000_fc.raw
     length: '0'
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -217,7 +216,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1720, 784.0]
+    coordinate: [1544, 784.0]
     rotation: 0
     state: enabled
 - name: blocks_throttle2_0
@@ -284,7 +283,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [752, 816.0]
+    coordinate: [544, 816.0]
     rotation: 0
     state: enabled
 - name: epy_block_0_1
@@ -320,7 +319,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [960, 816.0]
+    coordinate: [752, 816.0]
     rotation: 0
     state: enabled
 - name: epy_block_1
@@ -350,7 +349,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [536, 816.0]
+    coordinate: [328, 816.0]
     rotation: 0
     state: enabled
 - name: epy_block_2
@@ -380,7 +379,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1240, 816.0]
+    coordinate: [1032, 816.0]
     rotation: 0
     state: enabled
 - name: freq_xlating_fir_filter_xxx_0
@@ -427,7 +426,7 @@ blocks:
     minoutbuf: '0'
     name: After-filter GUI Sink
     plotconst: 'True'
-    plotfreq: 'True'
+    plotfreq: 'False'
     plottime: 'True'
     plotwaterfall: 'True'
     rate: '100'
@@ -503,6 +502,20 @@ blocks:
     coordinate: [672, 208.0]
     rotation: 0
     state: disabled
+- name: satellites_csp_zmq_pub_0
+  id: satellites_csp_zmq_pub
+  parameters:
+    address: '"tcp://localhost:6000"'
+    affinity: ''
+    alias: ''
+    comment: ''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1544, 536.0]
+    rotation: 0
+    state: disabled
 - name: satellites_decode_rs_ccsds_0
   id: satellites_decode_rs_ccsds
   parameters:
@@ -517,7 +530,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1424, 800.0]
+    coordinate: [1216, 800.0]
     rotation: 0
     state: enabled
 - name: satellites_doppler_correction_0
@@ -527,12 +540,11 @@ blocks:
     alias: ''
     comment: "file format: unix_timestamp doppler_hz\n\nThe value for \"Start Time\"\
       \ \nmust be the first unix_timestamp\nof the recordings doppler.txt file"
-    file: /home/luisito/Development/ITU/space/decode june tests/June 2026/2026-06-26/#2
-      record/gqrx_20260626_130053_437075000_500000_fc_doppler.txt
+    file: /home/luisito/Development/ITU/space/decode june tests/June 2026/2026-06-17/doppler.txt
     maxoutbuf: '0'
     minoutbuf: '0'
     samp_rate: samp_rate
-    t0: '1782478853.000000'
+    t0: '1781699223.000000'
     timesync_tag: '""'
   states:
     bus_sink: false
@@ -579,7 +591,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [904, 592.0]
+    coordinate: [896, 592.0]
     rotation: 0
     state: enabled
 - name: virtual_sink_0
@@ -634,6 +646,22 @@ blocks:
     coordinate: [64, 808.0]
     rotation: 0
     state: enabled
+- name: zeromq_pub_msg_sink_0
+  id: zeromq_pub_msg_sink
+  parameters:
+    address: tcp://127.0.0.1:5555
+    affinity: ''
+    alias: ''
+    bind: 'True'
+    comment: ''
+    timeout: '100'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1536, 632.0]
+    rotation: 0
+    state: enabled
 
 connections:
 - [analog_agc_xx_0, '0', analog_quadrature_demod_cf_0, '0']
@@ -649,6 +677,8 @@ connections:
 - [freq_xlating_fir_filter_xxx_0, '0', analog_simple_squelch_cc_0, '0']
 - [freq_xlating_fir_filter_xxx_0, '0', qtgui_sink_x_0, '0']
 - [satellites_decode_rs_ccsds_0, out, blocks_message_debug_1, print]
+- [satellites_decode_rs_ccsds_0, out, satellites_csp_zmq_pub_0, in]
+- [satellites_decode_rs_ccsds_0, out, zeromq_pub_msg_sink_0, in]
 - [satellites_doppler_correction_0, '0', freq_xlating_fir_filter_xxx_0, '0']
 - [satellites_doppler_correction_0, '0', qtgui_waterfall_sink_x_0, '0']
 - [satellites_fsk_demodulator_1, '0', digital_binary_slicer_fb_1, '0']
